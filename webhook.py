@@ -9,7 +9,7 @@ from pymongo import MongoClient
 
 MONGODB_URI = "mongodb://uptime:Basketball10@134.122.18.134:27017/admin"
 client = MongoClient(MONGODB_URI, connectTimeoutMS=30000)
-db = client.re
+db = client.on_re_db
 candidates = db.Chatbots_Candidates
 job = db.Hiring_PublicJobPosition
 
