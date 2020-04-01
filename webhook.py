@@ -7,9 +7,9 @@ from flask import Flask
 from flask import request, make_response
 from pymongo import MongoClient
 
-MONGODB_URI = "mongodb://uptime:Basketball10@134.122.18.134:27017/admin"
+MONGODB_URI = "mongodb+srv://kamlesh:techmatters123@aflatoun-quiz-pflgi.mongodb.net/test?retryWrites=true&w=majority"
 client = MongoClient(MONGODB_URI, connectTimeoutMS=30000)
-db = client.on_re_db
+db = client.hrchatbot
 candidates = db.Chatbots_Candidates
 job = db.Hiring_PublicJobPosition
 
