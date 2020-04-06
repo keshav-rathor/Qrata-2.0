@@ -116,8 +116,8 @@ def process_request(req):
 #Accept the Resume URL from user and update candidates detail
         elif action == "resume":
             result = req.get("originalDetectIntentRequest").get("payload").get("data").get("message").get("attachments")[0].get("payload")
-            #resume_url = result.get("url")
-            candidates_detail.update(result)
+            resume_url = result.get("url")
+            candidates_detail.update(resume_url)
 
 
 #Searching the jobs
