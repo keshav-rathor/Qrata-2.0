@@ -113,12 +113,12 @@ def process_request(req):
                     ]
                 }
 
-#Accept the Resume URL from user and update candidates detail
-        elif action == "resume":
-            result = req.get("originalDetectIntentRequest").get("payload").get("data").get("message").get("attachments")[0].get("payload")
-            # resume_url = result.get("url")
-            candidates_detail.update(result)
-
+# #Accept the Resume URL from user and update candidates detail
+#         elif action == "resume":
+#             result = req.get("originalDetectIntentRequest").get("payload").get("data").get("message").get("attachments")[0].get("payload")
+#             # resume_url = result.get("url")
+#             candidates_detail.update(result)
+#
 
 #Searching the jobs
         elif action == "search_jobs":
@@ -351,4 +351,4 @@ def process_request(req):
 if __name__ == '__main__':
     port = int(os.getenv('PORT', 5000))
     print("Starting app on port {}".format(port))
-    app.run(debug=False, port=port, host='0.0.0.0')
+    app.run(debug=True, port=port, host='0.0.0.0')
