@@ -76,16 +76,31 @@ def process_request(req):
         elif action == "name":
             result = req.get("queryResult")
             parameter = result.get("parameters")
+            print(parameter)
             candidates_detail.update(parameter)
             #candidates.insert(candidates_detail)
+
+# Asking for email from user and updating the candidates details
+        elif action == "email":
+            result = req.get("queryResult")
+            parameter = result.get("parameters").get("email")
+            email = {"email": parameter}
+            print(email)
+            candidates_detail.update(email)
+            # candidates.insert(candidates_detail)
+
+
 
 #Taking the details of user in community and update the database
         elif action == "Community":
             result = req.get("queryResult")
             parameter = result.get("parameters")
             candidates_detail.update(parameter)
+            print(candidates_detail)
+            print(len(candidates_detail))
         #candidates.insert(candidates_detail)
-            if len(candidates_detail) >= 11:
+            if len(candidates_detail) >= 5:
+
                 candidates.insert(candidates_detail)
                 candidates_detail = {}
                 return {
@@ -102,7 +117,7 @@ def process_request(req):
                                 "title": "These are your options",
                                 "quickReplies": [
                                     "About us",
-                                    "Be You!",
+                                    "Highpo!",
                                     "Jobs",
                                     "Help us to improve"
                                 ]
@@ -113,17 +128,12 @@ def process_request(req):
                     ]
                 }
 
-#Accept the Resume URL from user and update candidates detail
-        elif action == "resume":
-            result = req.get("originalDetectIntentRequest").get("payload").get("data").get("message").get("attachments")[0].get("payload")
-            # resume_url = result.get("url")
-            candidates_detail.update(result)
-#Accept email
-        elif action == "email":
-            result = req.get("queryResult")
-            parameter = result.get("parameters")
-            candidates_detail.update(parameter)
-
+# #Accept the Resume URL from user and update candidates detail
+#         elif action == "resume":
+#             result = req.get("originalDetectIntentRequest").get("payload").get("data").get("message").get("attachments")[0].get("payload")
+#             # resume_url = result.get("url")
+#             candidates_detail.update(result)
+#
 
 #Searching the jobs
         elif action == "search_jobs":
@@ -168,7 +178,6 @@ def process_request(req):
                                 "title": "These are your options",
                                 "quickReplies": [
                                     "About us",
-                                    "Be You!",
                                     "Jobs"
                                 ]
                             },
@@ -194,7 +203,6 @@ def process_request(req):
                                 "title": "These are your options",
                                 "quickReplies": [
                                     "About us",
-                                    "Be You!",
                                     "Jobs"
                                 ]
                             },
