@@ -273,8 +273,6 @@ def process_request(req):
                candidates.insert(job_detail)
                show_jobs = job.find({ "locality": job_detail["locality"],
                                         "statusVisible" : "enum.Hiring_JobPositionStatusVisible.Public"}).limit(3)
-               # print(show_jobs)
-
                if show_jobs:
                    job_detail={}
                    return {
