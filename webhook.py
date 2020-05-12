@@ -12,6 +12,12 @@ client = MongoClient(MONGODB_URI, connectTimeoutMS=30000)
 db = client.hrchatbot
 candidates = db.Chatbots_Candidates
 job = db.Hiring_PublicJobPosition
+db = client.Blacklist
+planUS = db.Hr_info
+
+
+
+
 
 
 flag = 0
@@ -61,6 +67,11 @@ def webhook():
 def process_request(req):
     global job_detail,candidates_detail
     global flag
+
+    try:
+        planUS.insert(req, check_keys=False)
+    except:
+        pass
 
     try:
         action = req.get("queryResult").get("action")
