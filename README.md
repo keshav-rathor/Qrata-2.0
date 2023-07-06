@@ -1,1 +1,1 @@
-Qrata2.0
+A Chatbot using Dialogflow. This is the backened part of the part where we can control the response of the chatbot. With the backened we can also connect the chatbot with different plateform but here we have connected the bot with facebook messanger. We can also connect or create additional Machine learning models to improve or get the response as we want. 
